@@ -1,0 +1,62 @@
+{
+ "photos": [
+  {
+   "trade": "cafe",
+   "draft": true,
+   "lead": "m189498721",
+   "ids": [
+    "m189498721",
+    "m61713028",
+    "m187311853",
+    "m61713362",
+    "m61714648",
+    "m28989985",
+    "m61713103",
+    "m62054123",
+    "m147143943",
+    "m147143894",
+    "m147143898",
+    "m201752739"
+   ],
+   "sections": [
+    "hero",
+    "bar",
+    "bar",
+    "coffee",
+    "coffee",
+    "beans",
+    "beans",
+    "roastery",
+    "roastery",
+    "cups",
+    "cups",
+    "pastry"
+   ],
+   "seed": "ehgrda",
+   "at": "2026-11-24T19:27:00.179Z"
+  }
+ ],
+ "palettes": [
+  "chalk-tomato"
+ ],
+ "types": [
+  "outfit"
+ ],
+ "dealt": [
+  "outfit",
+  "garamond",
+  "albert"
+ ],
+ "moments": [
+  {
+   "id": "photo-chapters",
+   "at": "2026-11-24T19:29:08.173Z",
+   "seed": "d5b815e2"
+  },
+  {
+   "id": "picture-develops",
+   "at": "2026-11-24T19:34:02.406Z",
+   "seed": "bf10d198"
+  }
+ ]
+}

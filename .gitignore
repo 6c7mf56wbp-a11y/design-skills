@@ -1,0 +1,9 @@
+# taste-skill test page: the kit copy and check output are regenerated, only the page and its photos are kept
+taste-test/assets/*
+!taste-test/assets/img/
+taste-test/.taste-skill/*
+!taste-test/.taste-skill/waivers.json
+!taste-test/.taste-skill/history.json
+taste-test/shots/*
+!taste-test/shots/1440.png
+!taste-test/shots/390.png
