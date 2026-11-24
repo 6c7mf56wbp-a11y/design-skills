@@ -1,0 +1,1 @@
+[{"check":"scroll-reveal","target":"div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary","reason":"0.1 s colour change comes from the kit's system.js action-bar observer hiding the phone bar when the close's same action is on screen; no reveal written by the page"}]
