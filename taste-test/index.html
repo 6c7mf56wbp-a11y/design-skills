@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de" data-type="place" data-page-mode="short" data-radius="soft" data-buttons="arrow" data-motion>
+<html lang="de" data-type="place" data-radius="soft" data-buttons="arrow" data-motion>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -41,35 +41,67 @@
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
 <link rel="modulepreload" href="assets/moments/moments.js">
 <link rel="modulepreload" href="assets/moments/lib.js">
-<link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
-<!-- page CSS: the short page's tablet rule (sections.md section 4, The short page, two groups) and the phone crop -->
+<link rel="modulepreload" href="assets/moments/photo-chapters/moment.js">
+<!-- page CSS: the address type moment (sections.md section 4) and the brand band's footer text -->
 <style>
+.type-moment a { display: block; color: inherit; text-decoration: none; background: none; }
+.type-moment a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .12em; }
+.type-moment { font: var(--display-weight) clamp(48px, 7vw, 104px)/1.02 var(--font-display); letter-spacing: -0.03em; margin: 0 0 var(--s-6); }
+.section-head.head-row { max-width: none; display: grid; gap: var(--s-5); align-items: end; }
+.head-row > p { margin: 0; }
+.rows .rows__name small { display: block; font-weight: 400; color: var(--muted); font-size: var(--t-body); line-height: 24px; }
 @media (min-width: 640px) and (max-width: 1023px) {
   #karte { --h: 2; }
-  #karte .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  #karte .grid > :not(.pl-photo) { grid-column: auto; }
-  #karte .grid > .pl-photo { grid-column: 1 / -1; order: -1; }
-  #karte .pl-photo > img { aspect-ratio: auto; height: calc(var(--pl-room) - 1.25 * var(--t-h2) - var(--head-gap)); margin-bottom: calc(var(--padt) + var(--padb) + var(--bar) - var(--card-gap)); }
-  #karte .visit__cols { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  #karte .grid--top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #karte .grid--top > * { grid-column: auto; }
+  #karte .grid--top > .pl-photo { order: -1; }
+  #karte .pl-photo > img { aspect-ratio: auto; height: calc(var(--pl-room) - 1.25 * var(--t-h2) - var(--head-gap) - 3.2em); margin-bottom: calc(var(--padt) + var(--padb) + var(--bar) - var(--card-gap)); }
 }
-@media (max-width: 639px) { #karte .pl-photo > img { aspect-ratio: 4 / 3; } }
+@media (max-width: 639px) {
+  #karte .grid--top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #karte .grid--top > * { grid-column: 1 / -1; }
+  #karte .pl-photo > img { aspect-ratio: 4 / 3; }
+  #visit .hours { grid-template-columns: minmax(0, 1fr) auto; }
+  #visit .hours dd { text-align: right; }
+}
 .ground-brand .closing__links h3, .ground-brand .footer__legal, .ground-brand .footer__legal a { color: var(--ink); }
 </style>
 </head>
 <body>
-<!-- type: place (Café mit Rösterei), short page: 4 library frames on disk, the rest unreachable (upload.wikimedia.org blocked)
-     deal: hero place (printed), nav nav-split (no panel: short page), close close-word head row without the name (re-dealt from close-photo),
-     footer footer-visit, rhythm colour-band, buttons arrow, mark petal, offer composition tall-small (not used: short page),
-     place composition pair (not used), type moment address (not used), rooms layout side (not used)
-     palette chalk-tomato (warm off-white like a milk foam and a tomato-red like an espresso machine's enamel), type outfit
-     moments: picture-develops on the section's photograph (#karte) -->
-<header class="nav nav--split">
+<!-- type: place (Café mit Rösterei), full page: 12 library frames (draft path, every one a stand-in)
+     deal: hero place (printed), nav nav-cards, footer footer-visit, rhythm colour-band, buttons arrow, mark petal,
+     offer composition tall-small (as two 4:5 on span-3 beside the groups), place composition pair (not used: the bar section was dropped to keep the page at 7 screens), type moment address,
+     rooms layout side (not used: a cafe has no rooms)
+     palette chalk-tomato (warm off-white like milk foam, tomato red like an espresso machine's enamel), type outfit
+     moments: photo-chapters (#roesterei: raw beans, roasting, cooling) -->
+<header class="nav">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Zum Inhalt</a>
     <a class="nav__logo" href="#top"><span class="mark" data-mark="petal" aria-hidden="true"></span>Brennholt</a>
     <nav class="nav__links" aria-label="Hauptmenü">
-      <div class="nav__item"><a class="nav__link" href="#espresso">Espresso</a></div>
-      <div class="nav__item"><a class="nav__link" href="#bohnen">Bohnen</a></div>
+      <div class="nav__item">
+        <a class="nav__link" href="#karte">Karte <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav__menu">
+          <div class="wrap grid">
+            <a class="menu-card span-4" href="#espresso">
+              <div class="panel"><img loading="lazy" width="1200" height="858" class="frame__img" src="assets/img/photo-m28989985-1200.webp" srcset="assets/img/photo-m28989985-600.webp 600w, assets/img/photo-m28989985-1200.webp 1200w" sizes="384px" alt="Espresso läuft in eine kleine weiße Tasse" data-source="library-057" data-subject="bar"></div>
+              <span class="t-card">Espresso-Bar</span>
+              <span class="t-small muted">ab <span data-assumed>2,40 €</span></span>
+            </a>
+            <a class="menu-card span-4" href="#bohnen">
+              <div class="panel"><img loading="lazy" width="1200" height="800" class="frame__img" src="assets/img/photo-m201752739-1200.webp" alt="Milch wird an der Maschine in einem roten Kännchen aufgeschäumt" data-source="library-057" data-subject="roast"></div>
+              <span class="t-card">Filter und Bohnen</span>
+              <span class="t-small muted">ab <span data-assumed>3,20 €</span></span>
+            </a>
+            <a class="menu-card span-4" href="#roesterei">
+              <div class="panel"><img loading="lazy" width="1200" height="800" class="frame__img" src="assets/img/photo-m147143894-1200.webp" srcset="assets/img/photo-m147143894-600.webp 600w, assets/img/photo-m147143894-1200.webp 1200w" sizes="384px" alt="Ein Probenstecher mit hellen Bohnen wird aus der Rösttrommel gezogen" data-source="library-057" data-subject="roast"></div>
+              <span class="t-card">Röstung jeden Dienstag</span>
+              <span class="t-small muted">Bohnen ab Mittwoch an der Bar</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="nav__item"><a class="nav__link" href="#roesterei">Rösterei</a></div>
       <div class="nav__item"><a class="nav__link" href="#visit">Besuch</a></div>
     </nav>
     <div class="nav__actions">
@@ -83,7 +115,7 @@
 
 <main id="top">
   <section class="hero hero--place" data-enter aria-labelledby="hero-h">
-    <picture class="hero__bg" data-phone-fill><source media="(max-width: 639px)" srcset="assets/img/photo-m187311853-780x975.webp 780w" sizes="100vw"><img src="assets/img/photo-m187311853-2400.webp" srcset="assets/img/photo-m187311853-1200.webp 1200w, assets/img/photo-m187311853-2400.webp 2400w" sizes="100vw" width="2400" height="1600" alt="Hände drücken gemahlenen Kaffee im Siebträger an, daneben die Espressomaschine" fetchpriority="high" decoding="async" data-source="library-057" data-subject="bar" style="object-position: 58% 50%"></picture>
+    <picture class="hero__bg" data-phone-fill><source media="(max-width: 639px)" srcset="assets/img/photo-m189498721-780x975.webp 780w" sizes="100vw"><img src="assets/img/photo-m189498721-2400.webp" srcset="assets/img/photo-m189498721-1200.webp 1200w, assets/img/photo-m189498721-2400.webp 2400w" sizes="100vw" width="2400" height="1600" alt="Ein Tablett mit vier Kaffees wird an einem Holztresen entlanggetragen" fetchpriority="high" decoding="async" data-source="library-057" data-subject="bar" style="object-position: 45% 60%"></picture>
     <div class="wrap"><div class="hero-text">
       <div class="hero__text">
         <h1 id="hero-h">Café mit Rösterei in Leipzig-Plagwitz</h1>
@@ -93,59 +125,95 @@
     </div></div>
   </section>
 
+  <section class="section" id="visit" data-place="visit" aria-labelledby="visit-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="visit-h">So findest du uns in Plagwitz</h2></div>
+      <p class="type-moment"><a class="type-moment__link" href="https://www.openstreetmap.org/search?query=Karl-Heine-Stra%C3%9Fe%20Plagwitz%20Leipzig">Karl-Heine-Straße, Plagwitz</a></p>
+      <div class="grid grid--top">
+        <div class="visit visit--card span-6">
+          <div class="visit__cols">
+            <div class="visit__col">
+              <p class="t-label">Adresse</p>
+              <address class="visit__address"><a class="link" href="https://www.openstreetmap.org/search?query=Karl-Heine-Stra%C3%9Fe%20Plagwitz%20Leipzig">Karl-Heine-Straße<br>Leipzig-Plagwitz</a></address>
+            </div>
+            <div class="visit__col">
+              <p class="t-label">Öffnungszeiten</p>
+              <dl class="hours" data-tz="Europe/Berlin" data-assumed><dt data-days="tue-fri">Di bis Fr</dt><dd>8 bis 18 Uhr</dd><dt data-days="sat,sun">Sa, So</dt><dd>9 bis 17 Uhr</dd><dt data-days="mon">Montag</dt><dd>geschlossen</dd></dl>
+            </div>
+          </div>
+          <ul class="visit__rows">
+            <li><span>Bohnen</span><span>auf Wunsch frisch gemahlen</span></li>
+          </ul>
+        </div>
+        <figure class="pl-photo span-6" style="--pl-r: 1.333"><img src="assets/img/photo-m61713028-1200.webp" srcset="assets/img/photo-m61713028-600.webp 600w, assets/img/photo-m61713028-1200.webp 1200w" sizes="(max-width: 1023px) 100vw, 50vw" width="1200" height="800" alt="Espresso läuft aus einem offenen Siebträger an einer verchromten Maschine" loading="lazy" decoding="async" data-source="library-057" data-subject="bar" style="object-position: 60% 50%"></figure>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="karte" style="--hm: 2" aria-labelledby="karte-h">
     <div class="wrap">
-      <div class="section-head">
-        <h2 id="karte-h">Karte und Bohnen</h2>
+      <div class="section-head grid head-row">
+        <h2 class="span-6" id="karte-h">Espresso, Filter und Bohnen</h2>
+        <p class="span-6 start-7">Bohnen aus der eigenen Röstung, jede Woche frisch. <a class="link" href="#roesterei">Röstung ansehen</a></p>
       </div>
       <div class="grid grid--top">
         <div class="span-3" id="espresso">
           <p class="t-label">Espresso-Bar</p>
           <ul class="rows">
-            <li><span class="rows__name">Espresso</span><span class="rows__value" data-assumed>2,40 €</span></li>
-            <li><span class="rows__name">Cortado</span><span class="rows__value" data-assumed>3,10 €</span></li>
-            <li><span class="rows__name">Cappuccino</span><span class="rows__value" data-assumed>3,60 €</span></li>
-            <li><span class="rows__name">Flat White</span><span class="rows__value" data-assumed>3,90 €</span></li>
+            <li><span class="rows__name">Espresso<small>Doppelt, 36 g</small></span><span class="rows__value" data-assumed>2,40 €</span></li>
+            <li><span class="rows__name">Cortado<small>Wenig warme Milch</small></span><span class="rows__value" data-assumed>3,10 €</span></li>
+            <li><span class="rows__name">Cappuccino<small>Auch mit Hafermilch</small></span><span class="rows__value" data-assumed>3,60 €</span></li>
+            <li><span class="rows__name">Flat White<small>160 ml</small></span><span class="rows__value" data-assumed>3,90 €</span></li>
           </ul>
         </div>
         <div class="span-3" id="bohnen">
           <p class="t-label">Filter und Bohnen</p>
           <ul class="rows">
-            <li><span class="rows__name">Filterkaffee</span><span class="rows__value" data-assumed>3,20 €</span></li>
-            <li><span class="rows__name">Filter, große Tasse</span><span class="rows__value" data-assumed>4,10 €</span></li>
-            <li><span class="rows__name">Bohnen, 250 g</span><span class="rows__value" data-assumed>9,80 €</span></li>
-            <li><span class="rows__name">Bohnen, 1 kg</span><span class="rows__value" data-assumed>34,50 €</span></li>
+            <li><span class="rows__name">Filterkaffee<small>Röstung der Woche</small></span><span class="rows__value" data-assumed>3,20 €</span></li>
+            <li><span class="rows__name">Filter, große Tasse<small>350 ml</small></span><span class="rows__value" data-assumed>4,10 €</span></li>
+            <li><span class="rows__name">Bohnen, 250 g<small>Auf Wunsch gemahlen</small></span><span class="rows__value" data-assumed>9,80 €</span></li>
+            <li><span class="rows__name">Bohnen, 1 kg<small>Für Büros</small></span><span class="rows__value" data-assumed>34,50 €</span></li>
           </ul>
         </div>
-        <figure class="pl-photo span-6" style="--pl-r: 1.5" data-moment="picture-develops"><img src="assets/img/photo-m28989985-1200.webp" srcset="assets/img/photo-m28989985-1200.webp 1200w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 100vw, 50vw" width="1200" height="857" alt="Espresso läuft aus einem offenen Siebträger in eine kleine weiße Tasse, dahinter Manometer und Maschine" loading="lazy" decoding="async" data-source="library-057" data-subject="bar" style="object-position: 62% 62%"></figure>
-      </div>
-      <div class="visit visit--cols" id="visit" data-place="visit" style="margin-top: var(--s-7)">
-        <div class="visit__cols">
-          <div class="visit__col">
-            <p class="t-label">Adresse</p>
-            <address class="visit__address"><a class="link" href="https://www.openstreetmap.org/search?query=Karl-Heine-Stra%C3%9Fe%20Plagwitz%20Leipzig">Karl-Heine-Straße<br>Leipzig-Plagwitz</a></address>
-          </div>
-          <div class="visit__col">
-            <p class="t-label">Öffnungszeiten</p>
-            <dl class="hours" data-tz="Europe/Berlin" data-assumed><dt data-days="tue-fri">Dienstag bis Freitag</dt><dd>8 bis 18 Uhr</dd><dt data-days="sat,sun">Samstag, Sonntag</dt><dd>9 bis 17 Uhr</dd><dt data-days="mon">Montag</dt><dd>geschlossen</dd></dl>
-          </div>
-          <div class="visit__col">
-            <p class="t-label">Bohnen zum Mitnehmen</p>
-            <p>Wir mahlen auf Wunsch für Siebträger, Filter oder Kanne. Geröstet wird jeden Dienstag.</p>
-          </div>
-        </div>
+        <figure class="pl-photo span-3" style="--pl-r: .667"><img src="assets/img/photo-m61714648-1200.webp" srcset="assets/img/photo-m61714648-600.webp 600w, assets/img/photo-m61714648-1200.webp 1200w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 282px" width="1200" height="1800" alt="Espresso wird aus einem kleinen Kännchen in eine weiße Tasse auf einem Holztresen gegossen" loading="lazy" decoding="async" data-source="library-057" data-subject="bar" style="object-position: 60% 70%"></figure>
+        <figure class="pl-photo span-3" style="--pl-r: .667"><img src="assets/img/photo-m61713362-1200.webp" srcset="assets/img/photo-m61713362-564x846.webp 564w, assets/img/photo-m61713362-1200.webp 1200w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 282px" width="1200" height="800" alt="Milch wird in einen Latte in einer weißen Tasse gegossen" loading="lazy" decoding="async" data-source="library-057" data-subject="bar" style="object-position: 50% 55%"></figure>
       </div>
     </div>
   </section>
+
+  <section class="section" id="roesterei" data-moment="photo-chapters" aria-labelledby="roesterei-h">
+    <div class="wrap mo-ph">
+      <div class="mo-ph__head"><h2 id="roesterei-h">Von der Rohbohne zur Röstung</h2><p>Wir rösten jeden Dienstag im Hinterhaus. Ab Mittwoch gibt es die Bohnen an der Bar.</p></div>
+      <ol class="mo-ph__list">
+        <li class="mo-ph__ch">
+          <figure class="mo-ph__pic"><img loading="lazy" src="assets/img/photo-m62054123-1200.webp" srcset="assets/img/photo-m62054123-726x1128.webp 726w, assets/img/photo-m62054123-1200.webp 1200w" sizes="(max-width: 639px) 100vw, 1200px" alt="Eine Hand sortiert grüne Kaffeebohnen in einem flachen Korb" width="1200" height="800" data-source="library-057" data-subject="beans"></figure>
+          <h3>Rohkaffee von Hand verlesen</h3>
+          <p>Vor dem Rösten sortieren wir Steine und kaputte Bohnen aus, damit keine Tasse nach einer Fehlbohne schmeckt.</p>
+        </li>
+        <li class="mo-ph__ch">
+          <figure class="mo-ph__pic"><img loading="lazy" src="assets/img/photo-m147143943-1200.webp" srcset="assets/img/photo-m147143943-726x1128.webp 726w, assets/img/photo-m147143943-1200.webp 1200w" sizes="(max-width: 639px) 100vw, 1200px" alt="Geröstete Bohnen fallen in das Kühlsieb, der Rührarm dreht sich" width="1200" height="800" data-source="library-057" data-subject="roast"></figure>
+          <h3>In kleinen Chargen rösten</h3>
+          <p>Jede Charge kommt nach dem Rösten ins Kühlsieb, damit die Bohnen nicht nachrösten.</p>
+        </li>
+        <li class="mo-ph__ch">
+          <figure class="mo-ph__pic"><img loading="lazy" src="assets/img/photo-m28989985-1200.webp" srcset="assets/img/photo-m28989985-726x1128.webp 726w, assets/img/photo-m28989985-1200.webp 1200w" sizes="(max-width: 639px) 100vw, 1200px" alt="Eine Hand hält eine kleine weiße Tasse unter einen offenen Siebträger, Espresso läuft" width="1200" height="857" data-source="library-057" data-subject="bar"></figure>
+          <h3>Ab Mittwoch in der Tasse</h3>
+          <p>Nach einem Tag Ruhe brühen wir die neue Röstung an der Bar und füllen sie in Tüten zu 250 g und 1 kg.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
 </main>
 
 <footer class="footer closing footer--visit ground-brand" id="contact" aria-labelledby="close-h">
   <div class="wrap">
-    <div class="closing__cta close--word">
+    <div class="closing__cta close--photo">
       <div class="section-head--split">
         <div><h2 id="close-h">Espresso und Bohnen in Plagwitz</h2><p class="t-lead">Dienstag bis Sonntag geöffnet, montags geschlossen.</p></div>
         <a class="btn btn--primary" href="https://www.openstreetmap.org/search?query=Karl-Heine-Stra%C3%9Fe%20Plagwitz%20Leipzig">Route planen<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
       </div>
+      <div class="close__media"><img width="1200" height="800" loading="lazy" src="assets/img/photo-m147143898-1200.webp" alt="Frisch geröstete Bohnen im Probenstecher, dahinter die Rösttrommel" data-source="library-057" data-subject="roast" style="--pos: 45% 50%"></div>
     </div>
     <div class="closing__links">
       <div class="grid">
@@ -154,11 +222,12 @@
         </div>
         <div class="span-4 start-9 stack-4">
           <h3>Öffnungszeiten</h3>
-          <dl class="hours" data-tz="Europe/Berlin" data-assumed><dt data-days="tue-fri">Dienstag bis Freitag</dt><dd>8 bis 18 Uhr</dd><dt data-days="sat,sun">Samstag, Sonntag</dt><dd>9 bis 17 Uhr</dd><dt data-days="mon">Montag</dt><dd>geschlossen</dd></dl>
+          <dl class="hours" data-tz="Europe/Berlin" data-assumed><dt data-days="tue-fri">Di bis Fr</dt><dd>8 bis 18 Uhr</dd><dt data-days="sat,sun">Sa, So</dt><dd>9 bis 17 Uhr</dd><dt data-days="mon">Montag</dt><dd>geschlossen</dd></dl>
         </div>
       </div>
       <div class="footer__legal">
-        <span>&copy; 2026 Brennholt &nbsp; <a href="privacy.html">Datenschutz</a></span>
+        <span>&copy; 2026 Brennholt</span>
+        <a href="privacy.html">Datenschutz</a>
         <a class="credits" href="credits.html">Fotos via Wikimedia Commons</a>
       </div>
     </div>
